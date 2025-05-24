@@ -1,14 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
-import { Instagram, Linkedin, Dribbble, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Instagram, Linkedin, Twitter, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const socialLinks = [
-    { name: 'Instagram', icon: Instagram, url: '#', color: 'hover:text-pink-500' },
-    { name: 'LinkedIn', icon: Linkedin, url: '#', color: 'hover:text-blue-600' },
-    { name: 'Dribbble', icon: Dribbble, url: '#', color: 'hover:text-pink-400' },
+    { name: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/karia_jeet/', color: 'hover:text-pink-500' },
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/jeet-karia-628773170/', color: 'hover:text-blue-600' },
+    { name: 'Twitter', icon: Twitter, url: 'https://x.com/KariaJeet/', color: 'hover:text-blue-400' },
   ];
 
   const carouselImages = [
@@ -43,6 +42,8 @@ const Index = () => {
             <a
               key={social.name}
               href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`text-black ${social.color} transition-colors font-light tracking-wide`}
             >
               {social.name.toLowerCase()}
@@ -75,14 +76,6 @@ const Index = () => {
             <h2 className="text-4xl md:text-6xl font-bold text-black leading-none mb-12 tracking-tight">
               world of Jeet Karia
             </h2>
-            
-            <div className="mt-24">
-              <p className="text-lg text-gray-600 font-light max-w-md">
-                <span className="text-black font-normal">CREATIVE DESIGNER</span><br />
-                Designing usability for Web3, AI<br />
-                and Tech Startups.
-              </p>
-            </div>
           </div>
         </section>
 
