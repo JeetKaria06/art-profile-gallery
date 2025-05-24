@@ -11,11 +11,11 @@ const Index = () => {
   ];
 
   const carouselImages = [
-    'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1500673922987-e212871fec22?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=600&fit=crop',
+    './src/assets/20231229_144519.jpg',
+    './src/assets/20231230_162156.jpg',
+    './src/assets/DSC_1201.jpg',
+    './src/assets/IMG_20250226_113623438.jpg',
+    './src/assets/IMG_0445.jpg',
   ];
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const Index = () => {
           <div className="relative bg-white rounded-none shadow-2xl border border-gray-100">
             <div className="p-8">
               <h2 className="text-2xl font-light text-black mb-8 tracking-wide">
-                VISUAL WORK
+                TRAVEL DIARIES
               </h2>
               
               <div className="relative overflow-hidden">
