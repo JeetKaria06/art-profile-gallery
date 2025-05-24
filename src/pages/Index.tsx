@@ -1,15 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
-import { Instagram, Twitter, Facebook, Youtube, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Instagram, Linkedin, Dribbble, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const socialLinks = [
     { name: 'Instagram', icon: Instagram, url: '#', color: 'hover:text-pink-500' },
-    { name: 'Twitter', icon: Twitter, url: '#', color: 'hover:text-blue-400' },
-    { name: 'Facebook', icon: Facebook, url: '#', color: 'hover:text-blue-600' },
-    { name: 'YouTube', icon: Youtube, url: '#', color: 'hover:text-red-500' },
+    { name: 'LinkedIn', icon: Linkedin, url: '#', color: 'hover:text-blue-600' },
+    { name: 'Dribbble', icon: Dribbble, url: '#', color: 'hover:text-pink-400' },
   ];
 
   const carouselImages = [
@@ -36,156 +35,158 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Navigation */}
+      <nav className="fixed top-8 right-8 z-50">
+        <div className="flex flex-col items-end gap-2 text-sm">
+          <a href="#work" className="text-black hover:text-gray-600 transition-colors font-light tracking-wide">
+            works
+          </a>
+          <a href="#about" className="text-black hover:text-gray-600 transition-colors font-light tracking-wide">
+            about me
+          </a>
+          <a href="#contact" className="text-black hover:text-gray-600 transition-colors font-light tracking-wide">
+            get in touch
+          </a>
+        </div>
+      </nav>
+
+      {/* Social Links - Right Side */}
+      <div className="fixed top-8 right-8 z-40 mt-24">
+        <div className="flex flex-col items-end gap-1 text-xs">
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.url}
+              className={`text-black ${social.color} transition-colors font-light tracking-wide`}
+            >
+              {social.name.toLowerCase()}
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* Abstract sketch background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <svg className="absolute top-20 left-10 w-32 h-32 text-gray-200 opacity-30" viewBox="0 0 100 100" fill="none">
-          <path d="M20,30 Q40,10 60,30 T100,30" stroke="currentColor" strokeWidth="1" fill="none" />
-          <circle cx="25" cy="45" r="8" stroke="currentColor" strokeWidth="1" fill="none" />
-          <path d="M70,50 L90,40 L85,65 Z" stroke="currentColor" strokeWidth="1" fill="none" />
+      <div className="absolute inset-0 pointer-events-none opacity-5">
+        <svg className="absolute top-40 left-20 w-64 h-64 text-black" viewBox="0 0 200 200" fill="none">
+          <path d="M40,60 Q80,20 120,60 T200,60" stroke="currentColor" strokeWidth="1" fill="none" />
+          <circle cx="50" cy="90" r="16" stroke="currentColor" strokeWidth="1" fill="none" />
+          <path d="M140,100 L180,80 L170,130 Z" stroke="currentColor" strokeWidth="1" fill="none" />
         </svg>
         
-        <svg className="absolute top-40 right-20 w-24 h-24 text-gray-200 opacity-25" viewBox="0 0 100 100" fill="none">
-          <path d="M10,50 Q30,20 50,50 Q70,80 90,50" stroke="currentColor" strokeWidth="1.5" fill="none" />
-          <rect x="20" y="20" width="15" height="15" stroke="currentColor" strokeWidth="1" fill="none" transform="rotate(45 27.5 27.5)" />
-        </svg>
-
-        <svg className="absolute bottom-40 left-1/4 w-20 h-20 text-gray-200 opacity-20" viewBox="0 0 100 100" fill="none">
-          <path d="M30,30 L70,30 L50,70 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-          <circle cx="50" cy="20" r="5" stroke="currentColor" strokeWidth="1" fill="none" />
+        <svg className="absolute bottom-40 right-20 w-48 h-48 text-black" viewBox="0 0 150 150" fill="none">
+          <path d="M20,75 Q60,40 100,75 Q140,110 180,75" stroke="currentColor" strokeWidth="1.5" fill="none" />
+          <rect x="40" y="40" width="30" height="30" stroke="currentColor" strokeWidth="1" fill="none" transform="rotate(45 55 55)" />
         </svg>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-12">
-        {/* Header Section */}
-        <header className="text-center mb-16 animate-fade-in">
-          <div className="relative inline-block">
-            <h1 className="text-5xl md:text-6xl font-light text-gray-800 mb-4 tracking-wide">
-              Creative
-              <span className="block text-3xl md:text-4xl text-gray-600 font-extralight mt-2">
-                Portfolio
-              </span>
+      <div className="container mx-auto px-8 py-16">
+        {/* Main Typography Section */}
+        <section className="mb-32">
+          <div className="max-w-4xl">
+            <h1 className="text-7xl md:text-9xl font-light text-black leading-none mb-8 tracking-tight">
+              YOU'VE GOT
             </h1>
-            {/* Decorative sketch line */}
-            <svg className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-4" viewBox="0 0 120 20" fill="none">
-              <path d="M10,10 Q60,2 110,10" stroke="#9CA3AF" strokeWidth="1" fill="none" opacity="0.6" />
-            </svg>
-          </div>
-          <p className="text-gray-600 text-lg font-light mt-8 max-w-md mx-auto">
-            Connecting through creativity and inspiration
-          </p>
-        </header>
-
-        {/* Social Media Links */}
-        <section className="mb-20">
-          <div className="flex justify-center items-center gap-8 md:gap-12">
-            {socialLinks.map((social, index) => {
-              const IconComponent = social.icon;
-              return (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  className={`group flex flex-col items-center transition-all duration-300 hover:scale-110 ${social.color}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="relative p-4 bg-white rounded-full shadow-md group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                    <IconComponent size={28} className="text-gray-700 group-hover:text-current transition-colors duration-300" />
-                    {/* Sketch circle overlay */}
-                    <svg className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-30 transition-opacity duration-300" viewBox="0 0 80 80" fill="none">
-                      <circle cx="40" cy="40" r="35" stroke="currentColor" strokeWidth="1" fill="none" strokeDasharray="2,2" />
-                    </svg>
-                  </div>
-                  <span className="text-sm text-gray-600 mt-3 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {social.name}
-                  </span>
-                </a>
-              );
-            })}
+            <h2 className="text-7xl md:text-9xl font-bold text-black leading-none mb-12 tracking-tight">
+              THE IDEA,
+            </h2>
+            <div className="flex items-center gap-8 mb-16">
+              <h3 className="text-7xl md:text-9xl font-bold text-black leading-none tracking-tight">
+                GREAT
+              </h3>
+              {/* Decorative element placeholder */}
+              <div className="w-24 h-16 bg-gray-100 rounded border border-gray-200 flex items-center justify-center">
+                <span className="text-xs text-gray-400">visual</span>
+              </div>
+            </div>
+            
+            <div className="mt-24">
+              <h4 className="text-5xl md:text-7xl font-bold text-black leading-none mb-8 tracking-tight">
+                LEAVE THE
+              </h4>
+              <p className="text-lg text-gray-600 font-light max-w-md">
+                <span className="text-black font-normal">CREATIVE DESIGNER</span><br />
+                Designing usability for Web3, AI<br />
+                and Tech Startups.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Photo Carousel with Sketch Background */}
-        <section className="relative max-w-4xl mx-auto">
+        {/* Photo Carousel Section */}
+        <section className="relative max-w-5xl mx-auto mt-32">
           {/* Hand-drawn sketch background */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none opacity-10">
             <svg className="w-full h-full" viewBox="0 0 800 400" fill="none">
-              {/* Abstract sketch elements behind carousel */}
               <path d="M50,100 Q200,50 350,100 Q500,150 650,100 Q750,50 800,100" 
-                    stroke="#E5E7EB" strokeWidth="2" fill="none" opacity="0.4" />
+                    stroke="#000000" strokeWidth="2" fill="none" />
               <path d="M0,200 Q150,180 300,200 Q450,220 600,200 Q750,180 800,200" 
-                    stroke="#E5E7EB" strokeWidth="1.5" fill="none" opacity="0.3" />
+                    stroke="#000000" strokeWidth="1.5" fill="none" />
               <path d="M100,300 Q250,280 400,300 Q550,320 700,300" 
-                    stroke="#E5E7EB" strokeWidth="1" fill="none" opacity="0.25" />
+                    stroke="#000000" strokeWidth="1" fill="none" />
               
-              {/* Scattered abstract shapes */}
-              <circle cx="100" cy="80" r="3" fill="#E5E7EB" opacity="0.3" />
-              <circle cx="700" cy="120" r="2" fill="#E5E7EB" opacity="0.4" />
-              <rect x="200" y="320" width="8" height="8" fill="none" stroke="#E5E7EB" strokeWidth="1" opacity="0.3" transform="rotate(45 204 324)" />
-              <polygon points="600,320 608,340 592,340" fill="none" stroke="#E5E7EB" strokeWidth="1" opacity="0.3" />
+              <circle cx="100" cy="80" r="3" fill="#000000" />
+              <circle cx="700" cy="120" r="2" fill="#000000" />
+              <rect x="200" y="320" width="8" height="8" fill="none" stroke="#000000" strokeWidth="1" transform="rotate(45 204 324)" />
+              <polygon points="600,320 608,340 592,340" fill="none" stroke="#000000" strokeWidth="1" />
             </svg>
           </div>
 
           {/* Carousel Container */}
-          <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-gray-200">
-            <h2 className="text-2xl font-light text-gray-800 text-center mb-8">
-              Visual Journey
-            </h2>
-            
-            <div className="relative overflow-hidden rounded-xl">
-              <div className="flex transition-transform duration-500 ease-in-out"
-                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                {carouselImages.map((image, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
-                    <img
-                      src={image}
-                      alt={`Gallery image ${index + 1}`}
-                      className="w-full h-64 md:h-80 object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
+          <div className="relative bg-white rounded-none shadow-2xl border border-gray-100">
+            <div className="p-8">
+              <h2 className="text-2xl font-light text-black mb-8 tracking-wide">
+                VISUAL WORK
+              </h2>
+              
+              <div className="relative overflow-hidden">
+                <div className="flex transition-transform duration-500 ease-in-out"
+                     style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+                  {carouselImages.map((image, index) => (
+                    <div key={index} className="w-full flex-shrink-0">
+                      <img
+                        src={image}
+                        alt={`Gallery image ${index + 1}`}
+                        className="w-full h-64 md:h-96 object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Navigation Buttons */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black p-3 shadow-lg transition-all duration-200 hover:scale-110"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black p-3 shadow-lg transition-all duration-200 hover:scale-110"
+                >
+                  <ChevronRight size={20} />
+                </button>
               </div>
 
-              {/* Navigation Buttons */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 p-2 rounded-full shadow-md transition-all duration-200 hover:scale-110"
-              >
-                <ChevronLeft size={20} />
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 p-2 rounded-full shadow-md transition-all duration-200 hover:scale-110"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-
-            {/* Carousel Indicators */}
-            <div className="flex justify-center mt-6 gap-2">
-              {carouselImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-gray-600 w-6' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
+              {/* Carousel Indicators */}
+              <div className="flex justify-center mt-6 gap-2">
+                {carouselImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-2 h-2 transition-all duration-300 ${
+                      index === currentSlide ? 'bg-black w-8' : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Additional sketch elements around carousel */}
-          <svg className="absolute -top-8 -left-8 w-16 h-16 text-gray-300 opacity-40" viewBox="0 0 60 60" fill="none">
-            <path d="M10,30 Q30,10 50,30 Q30,50 10,30" stroke="currentColor" strokeWidth="1" fill="none" />
-          </svg>
-          <svg className="absolute -bottom-6 -right-6 w-12 h-12 text-gray-300 opacity-30" viewBox="0 0 50 50" fill="none">
-            <rect x="10" y="10" width="30" height="30" stroke="currentColor" strokeWidth="1" fill="none" transform="rotate(30 25 25)" />
-          </svg>
         </section>
 
         {/* Footer */}
-        <footer className="text-center mt-20 text-gray-500 font-light">
+        <footer className="text-center mt-32 text-gray-400 font-light text-sm">
           <p>© 2024 Creative Portfolio. Made with passion.</p>
         </footer>
       </div>
