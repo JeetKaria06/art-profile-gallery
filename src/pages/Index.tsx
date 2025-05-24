@@ -36,23 +36,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Navigation */}
-      <nav className="fixed top-8 right-8 z-50">
-        <div className="flex flex-col items-end gap-2 text-sm">
-          <a href="#work" className="text-black hover:text-gray-600 transition-colors font-light tracking-wide">
-            works
-          </a>
-          <a href="#about" className="text-black hover:text-gray-600 transition-colors font-light tracking-wide">
-            about me
-          </a>
-          <a href="#contact" className="text-black hover:text-gray-600 transition-colors font-light tracking-wide">
-            get in touch
-          </a>
-        </div>
-      </nav>
-
       {/* Social Links - Right Side */}
-      <div className="fixed top-8 right-8 z-40 mt-24">
+      <div className="fixed top-8 right-8 z-40">
         <div className="flex flex-col items-end gap-1 text-xs">
           {socialLinks.map((social) => (
             <a
@@ -84,26 +69,14 @@ const Index = () => {
         {/* Main Typography Section */}
         <section className="mb-32">
           <div className="max-w-4xl">
-            <h1 className="text-7xl md:text-9xl font-light text-black leading-none mb-8 tracking-tight">
-              YOU'VE GOT
+            <h1 className="text-4xl md:text-6xl font-light text-black leading-none mb-8 tracking-tight">
+              Hi, Welcome to the
             </h1>
-            <h2 className="text-7xl md:text-9xl font-bold text-black leading-none mb-12 tracking-tight">
-              THE IDEA,
+            <h2 className="text-4xl md:text-6xl font-bold text-black leading-none mb-12 tracking-tight">
+              world of Jeet Karia
             </h2>
-            <div className="flex items-center gap-8 mb-16">
-              <h3 className="text-7xl md:text-9xl font-bold text-black leading-none tracking-tight">
-                GREAT
-              </h3>
-              {/* Decorative element placeholder */}
-              <div className="w-24 h-16 bg-gray-100 rounded border border-gray-200 flex items-center justify-center">
-                <span className="text-xs text-gray-400">visual</span>
-              </div>
-            </div>
             
             <div className="mt-24">
-              <h4 className="text-5xl md:text-7xl font-bold text-black leading-none mb-8 tracking-tight">
-                LEAVE THE
-              </h4>
               <p className="text-lg text-gray-600 font-light max-w-md">
                 <span className="text-black font-normal">CREATIVE DESIGNER</span><br />
                 Designing usability for Web3, AI<br />
