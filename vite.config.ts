@@ -4,6 +4,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 import { ghPages } from "vite-plugin-gh-pages";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
+
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -16,6 +18,14 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' &&
     componentTagger(),
     ghPages(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/assets',
+          dest: 'src'
+        }
+      ]
+    })
   ].filter(Boolean),
   resolve: {
     alias: {
@@ -23,5 +33,5 @@ export default defineConfig(({ mode }) => ({
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
-  // base: '/art-profile-gallery/'
+  base: '/'
 }));
